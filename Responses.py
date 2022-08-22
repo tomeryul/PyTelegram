@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import Constants
 from bs4 import BeautifulSoup
 from googlesearch import search
 import requests
@@ -83,10 +83,7 @@ def wiki_search(user_query):
 
     URL = "https://en.wikipedia.org/wiki/" + user_query_upper
 
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
-                      '(KHTML, like Gecko) Chrome/103.0.5060.53 Safari/537.36'
-    }
+    headers = Constants.headers
 
     page = requests.get(URL, headers=headers)
     soup = BeautifulSoup(page.content, 'html.parser')
